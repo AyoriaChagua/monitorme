@@ -1,0 +1,6 @@
+añadir la siguiente logica:
+	- registrar cada hora de inicio y hora de cierre 
+	- ¿como hago para que lea los procesos que están siendo usados? => libreria que lee ventanas activas
+	- agregar registro de cuando se apaga la pc
+	- formatear datos para enviarlos a la db
+	- determinar que aplicaciones son las que tienen interfaz grafica y pueden ser usadas por el usuario

@@ -1,0 +1,22 @@
+{
+  "name": "app-monitor",
+  "version": "1.0.0",
+  "description": "This is a subprocess ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "@paymoapp/active-window": "^2.0.6",
+    "axios": "^1.6.1",
+    "morgan": "^1.10.0",
+    "node-active-window": "^0.1.0",
+    "tasklist": "^5.0.0"
+  }
+}
