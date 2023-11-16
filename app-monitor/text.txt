@@ -4,3 +4,7 @@ añadir la siguiente logica:
 	- agregar registro de cuando se apaga la pc
 	- formatear datos para enviarlos a la db
 	- determinar que aplicaciones son las que tienen interfaz grafica y pueden ser usadas por el usuario
+
+suponiendo que el estudiante apague la pc sin cerrar las ventanas este se guardará en un log
+
+consume 130 mb de memoria aprox.. se debe considerar que tmbn actua como un servicio

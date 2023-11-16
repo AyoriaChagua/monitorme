@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,8 +14,8 @@
     "nodemon": "^3.0.1"
   },
   "dependencies": {
-    "@paymoapp/active-window": "^2.0.6",
     "axios": "^1.6.1",
+    "exit-hook": "^4.0.0",
     "morgan": "^1.10.0",
     "node-active-window": "^0.1.0",
     "tasklist": "^5.0.0"

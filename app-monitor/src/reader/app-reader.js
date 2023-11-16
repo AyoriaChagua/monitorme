@@ -1,57 +1,32 @@
-import { exec } from 'child_process'
+import { getActiveWindow } from './active-window.js';
+import { recordInLog } from '../utils/record-in-logs.js';
+import exitHook from 'exit-hook';
+import { getActiveSoftware } from './active-software.js';
 
-let previusApps = [];
+let appsInUse = [];
 
-export function appReader() {
-  exec('tasklist /fo csv /nh', (error, stdout) => {
-    if (error) {
-      console.error('Error at get process:', error);
-      return;
-    }
+export const appReader = async () => {
+  try {
+    const result = await getActiveSoftware();
+    const { addedApps, removedApps, appsInUse } = result;
 
-    const lines = stdout.trim().split('\n');
-    const appsInUse = [];
-    const seenNames = new Set();
-
-    lines.forEach( line => {
-      const columns = line
-        .split('","')
-        .map(column =>  column.replace(/"/g, ''));
-
-      const [name, pid, , sessionNum] = columns;
-      const parsedPid = parseInt(pid, 10);
-      const parsedSessionNum = parseInt(sessionNum, 10);
-      const currentTime = new Date().toLocaleString();
-
-      if(parsedSessionNum !== 0 && !seenNames.has(name)){
-        seenNames.add(name);
-        appsInUse.push({
-          name, 
-          pid: parsedPid, 
-          currentTime,
-          memUsage: columns[4]
-        });
-      }
-    });
-
-    const addedApps = appsInUse.filter(
-      app => !previusApps.
-      some(previusApp => previusApp.name === app.name)
-    );
-
-    const removedApps = previusApps.filter(
-      previusApp => !appsInUse.
-      some(app => app.name === previusApp.name)
-    );
-    
     if (addedApps.length > 0) {
       console.log('Nuevas aplicaciones en uso:', addedApps);
     }
 
-    if(removedApps.length > 0){
-      console.log('aplicaciones cerradas:', removedApps);
+    if (removedApps.length > 0) {
+      console.log('Aplicaciones cerradas:', removedApps);
     }
 
-    previusApps = appsInUse;
-  })
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
+
+const simulateApiCall = async (appData) => {
+  console.log('Simulando envío a la API:', appData);
+};
+
+exitHook(() => {
+  recordInLog(appsInUse);
+});

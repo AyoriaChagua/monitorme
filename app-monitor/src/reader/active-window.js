@@ -1,7 +1,16 @@
 import monitor from 'node-active-window';
- 
-monitor.getActiveWindow((err, window) => {
-    if (!err) {
-        console.log(window); // { app: 'Code', title: 'test.js - node-active-window - Visual Studio Code' }
-    }
-});
+
+export const getActiveWindow = () => {
+    return new Promise((resolve, reject) => {
+        monitor.getActiveWindow((err, window) => {
+            if (err) {
+                reject(err);
+            } else {
+                const currentTime = new Date();
+                const { app, title } = window;
+                const activeWindow = { app, title, start_time: currentTime };
+                resolve(activeWindow);
+            }
+        });
+    });
+};
