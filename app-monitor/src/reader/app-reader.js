@@ -15,6 +15,10 @@ export const appReader = async () => {
     }
 
     if (removedApps.length > 0) {
+      const { name, start_time } = removedApps[0];
+      const currentTime = new Date();
+      simulateApiCall({ name, start_time, end_time: currentTime })
+
       console.log('Aplicaciones cerradas:', removedApps);
     }
 
@@ -30,3 +34,9 @@ const simulateApiCall = async (appData) => {
 exitHook(() => {
   recordInLog(appsInUse);
 });
+
+
+//requirements
+/*
+  a la hora de cerrar una aplicacion se debe de hacer de enviar a la API
+*/
