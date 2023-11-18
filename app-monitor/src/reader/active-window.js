@@ -6,9 +6,8 @@ export const getActiveWindow = () => {
             if (err) {
                 reject(err);
             } else {
-                const currentTime = new Date();
                 const { app, title } = window;
-                const activeWindow = { app, title, start_time: currentTime };
+                const activeWindow = { app, title };
                 resolve(activeWindow);
             }
         });

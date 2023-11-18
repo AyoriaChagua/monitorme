@@ -1,1 +1,22 @@
-[]
+{
+  "explorer": {
+    "title": "",
+    "inPause": true,
+    "duration": 0
+  },
+  "Code": {
+    "title": "app-reader.js - app-monitor - Visual Studio Code",
+    "inPause": true,
+    "duration": 0
+  },
+  "opera_gx_splash": {
+    "title": "",
+    "inPause": true,
+    "duration": 0
+  },
+  "WindowsTerminal": {
+    "title": "Windows PowerShell",
+    "inPause": false,
+    "duration": 0
+  }
+}

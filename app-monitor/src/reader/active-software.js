@@ -1,6 +1,7 @@
 import { exec } from 'child_process';
 
 let previusApps = [];
+
 export const getActiveSoftware = async () => {
   return new Promise((resolve, reject) => {
     exec('tasklist /fo csv /nh', (error, stdout) => {
@@ -21,13 +22,11 @@ export const getActiveSoftware = async () => {
 
         const [name, , , sessionNum] = columns;
         const parsedSessionNum = parseInt(sessionNum, 10);
-        const currentTime = new Date();
 
         if (parsedSessionNum !== 0 && !seenNames.has(name)) {
           seenNames.add(name);
           appsInUse.push({
             name: name.replace(".exe", ""),
-            start_time: currentTime,
             memUsage: columns[4]
           });
         }
