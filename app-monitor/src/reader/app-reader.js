@@ -3,14 +3,19 @@ import { timer } from '../utils/timer.js';
 import exitHook from 'exit-hook';
 import { getActiveSoftware } from './active-software.js';
 import { recordInLog } from '../utils/record-in-logs.js';
-import { simulateApiCall } from '../services/monitorme-service.js';
+import { postMonitoringInfo } from '../services/monitorme-service.js';
+import os from 'os'
 
+const hostname = os.hostname();
 let activeTimers = {};
 
 export const appReader = async () => {
   try {
-    const { app, title } = await getActiveWindow();
-    const { removedApps } = await getActiveSoftware();
+    const { removedApps, appsInUse, addedApps } = await getActiveSoftware();
+    const { app } = await getActiveWindow(appsInUse);
+    if (addedApps.length > 0) {
+      handleClosedApps(addedApps);
+    }
     if (removedApps.length > 0) {
       handleClosedApps(removedApps);
     }
@@ -22,19 +27,18 @@ export const appReader = async () => {
       }
     } else {
       pauseAllTimers();
-      createTimerForWindow(app, title);
+      createTimerForWindow(app);
     }
   } catch (error) {
     console.error('Error:', error);
   }
 }
 
-const createTimerForWindow = (windowName, title) => {
+const createTimerForWindow = (windowName) => {
   const timerName = `Timer_${windowName}`;
   const newTimer = timer(timerName, 1000);
   activeTimers[windowName] = {
     ...newTimer,
-    title: title,
     inPause: false,
     duration: 0
   };
@@ -50,26 +54,17 @@ const pauseAllTimers = () => {
 
 const handleClosedApps = closedApps => {
   closedApps.forEach(app => {
-    if (activeTimers[app.name]) {
-      activeTimers[app.name].duration += activeTimers[app.name].stop();
-      const { title, duration } = activeTimers[app.name]
-      const words = title.split(/\s* - \s*/);
-      let result;
-      if (words.length > 1) {
-        result = {
-          name: words[words.length - 1],
-          tab: words[0],
-          duration,
-        };
-      } else {
-        result = {
-          name: title,
-          tab: title,
-          duration,
-        };
-      }
-      simulateApiCall(result);
-      delete activeTimers[app.name];
+    if (activeTimers[app]) {
+      activeTimers[app].duration += activeTimers[app].stop();
+      const { duration } = activeTimers[app]
+      const result = {
+        name: app,
+        duration,
+        computer: hostname,
+        type: 'Desktop Application'
+      };
+      postMonitoringInfo(result);
+      delete activeTimers[app];
     }
   })
 }
