@@ -12,7 +12,7 @@ const usageRecordSchema = new Schema({
         required: true
     },
     duration: {
-        type: Date,
+        type: Number,
         required: true
     }
 }, {
