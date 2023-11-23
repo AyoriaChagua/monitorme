@@ -1,8 +1,7 @@
 import { config } from "dotenv";
 config();
 
-export const PORT = process.env.PORT || '3000'
-export const DB_USER = process.env.DB_USER || 'user';
-export const DB_PASSWORD = process.env.DB_PASSWORD || '4yunde4I7R0GYArl';
-export const DB_NAME = process.env.DB_NAME || 'dbname';
-export const MONGODB_URI = process.env.MONGODB_URI || ''
+export const PORT = process.env.PORT || '3000';
+export const MONGODB_URI = process.env.MONGODB_URI || '';
+export const OPEN_AI_API = process.env.OPEN_AI_API || '';
+export const OPEN_AI_ORGANIZATION = process.env.OPEN_AI_ORGANIZATION;
