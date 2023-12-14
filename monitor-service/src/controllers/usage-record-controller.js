@@ -13,7 +13,6 @@ export const postUsageRecord = async (req, res) => {
         if (!computerBody) {
             return res.status(404).json({ error: 'Computer not found' });
         } else if (!softwareBody) {
-            console.log('creando')
             const { category_id, type_id } = await asignCategoryAndType(name, type);
             const newSoftware = await SoftwareService.saveNewSoftware({
                 name,
@@ -24,8 +23,7 @@ export const postUsageRecord = async (req, res) => {
                 computer: computerBody._id,
                 software: newSoftware._id,
                 duration
-            })
-            console.log('creado papi cheka tu mongo atlas 😊')
+            });
             return res.status(201).json(newUsageRecord);
         }
 

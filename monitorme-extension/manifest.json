@@ -8,6 +8,7 @@
         "48": "/img/icon-48.png"
     },
     "permissions": [
+        "idle",
         "storage",
         "activeTab",
         "webNavigation",
@@ -25,5 +26,11 @@
     },
     "host_permissions": [
         "<all_urls>"
-    ]
+    ],
+    "externally_connectable": {
+        "ids": ["*"],
+        "matches": [
+            "http://localhost:3999/*"
+        ]
+    }
 }
