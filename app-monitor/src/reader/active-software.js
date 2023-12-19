@@ -23,7 +23,6 @@ export const getActiveSoftware = async () => {
         previusApp => !appsInUse.includes(previusApp)
       );
       previusApps = appsInUse;
-
       resolve({ addedApps, removedApps, appsInUse });
     });
   });

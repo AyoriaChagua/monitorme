@@ -5,6 +5,7 @@ export const simulateApiCall = async (appData) => {
 };
 
 export const postMonitoringInfo = async (monitoring) => {
+    console.log(monitoring);
     const config = {
         method: 'post',
         url: 'http://localhost:3999/api/monitor/usage-record',

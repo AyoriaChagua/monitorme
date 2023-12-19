@@ -1,4 +1,20 @@
 {
+  "Google Chrome": {
+    "inPause": true,
+    "duration": 0
+  },
+  "Visual Studio Code": {
+    "inPause": true,
+    "duration": 0
+  },
+  "Spotify": {
+    "inPause": true,
+    "duration": 0
+  },
+  "Discord": {
+    "inPause": true,
+    "duration": 0
+  },
   "unknown": {
     "inPause": false,
     "duration": 0

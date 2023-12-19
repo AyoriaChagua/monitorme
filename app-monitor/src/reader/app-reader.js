@@ -12,13 +12,14 @@ let activeTimers = {};
 export const appReader = async () => {
   try {
     const { removedApps, appsInUse, addedApps } = await getActiveSoftware();
+    if (removedApps.length > 0) {
+      handleClosedApps(removedApps);
+    }
     const { app } = await getActiveWindow(appsInUse);
     if (addedApps.length > 0) {
       handleClosedApps(addedApps);
     }
-    if (removedApps.length > 0) {
-      handleClosedApps(removedApps);
-    }
+    
     if (activeTimers[app]) {
       if (activeTimers[app].inPause) {
         pauseAllTimers();
