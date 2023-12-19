@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
+<<<<<<< HEAD
     "@prisma/client": "^5.7.0",
     "antd": "^5.12.2",
     "axios": "^1.6.2",
@@ -25,6 +26,17 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+=======
+    "@lottiefiles/react-lottie-player": "^3.5.3",
+    "@prisma/client": "^5.7.0",
+    "antd": "^5.12.2",
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "^7.49.0"
+  },
+  "devDependencies": {
+>>>>>>> bcab0d982a8c651f21ea2ebebe087963209ce63d
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

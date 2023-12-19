@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import { CustomFormLogin, WelcomeLogin } from '@/components'
 export default function LoginPage() {
   return (
@@ -11,4 +12,11 @@ export default function LoginPage() {
       </div>
     </div>
   );
+=======
+
+export default function LoginPage() {
+  return (
+    <div>LoginPage</div>
+  )
+>>>>>>> bcab0d982a8c651f21ea2ebebe087963209ce63d
 }

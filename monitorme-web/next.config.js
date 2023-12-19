@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+<<<<<<< HEAD
 const nextConfig = {
     experimental: {
         webpack: (config) => {
@@ -7,5 +8,8 @@ const nextConfig = {
         },
     },
 }
+=======
+const nextConfig = {}
+>>>>>>> bcab0d982a8c651f21ea2ebebe087963209ce63d
 
 module.exports = nextConfig

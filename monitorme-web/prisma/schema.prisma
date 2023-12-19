@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+>>>>>>> bcab0d982a8c651f21ea2ebebe087963209ce63d
 generator client {
   provider = "prisma-client-js"
 }
@@ -18,14 +24,20 @@ model User {
   id        Int       @id @default(autoincrement())
   email     String    @unique
   password  String
+<<<<<<< HEAD
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
+=======
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @unique
+>>>>>>> bcab0d982a8c651f21ea2ebebe087963209ce63d
   Profile   Profile[]
   role      Role      @relation(fields: [roleId], references: [id])
   roleId    Int       @default(2)
 }
 
 model Profile {
+<<<<<<< HEAD
   id        Int       @id @default(autoincrement())
   user      User      @relation(fields: [userId], references: [id])
   userId    Int
@@ -33,4 +45,11 @@ model Profile {
   lastname  String?   @default("")
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
+=======
+  id        Int     @id @default(autoincrement())
+  user      User    @relation(fields: [userId], references: [id])
+  userId    Int
+  firstName String  @default("")
+  lastName  String? @default("")
+>>>>>>> bcab0d982a8c651f21ea2ebebe087963209ce63d
 }

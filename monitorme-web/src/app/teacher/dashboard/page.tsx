@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use client'
 import { CustomAdminNav, CustomButton, CustomNav, CustomTable } from '@/components';
 import React from 'react';
@@ -24,5 +25,12 @@ export default function TeacherDashboardPage() {
         </div>
       </div>
     </div>
+=======
+import React from 'react'
+
+export default function TeacherDashboardPage() {
+  return (
+    <div>TeacherDashboardPage</div>
+>>>>>>> bcab0d982a8c651f21ea2ebebe087963209ce63d
   )
 }
