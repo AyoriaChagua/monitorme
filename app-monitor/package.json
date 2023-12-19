@@ -15,9 +15,11 @@
   },
   "dependencies": {
     "axios": "^1.6.1",
+    "dotenv": "^16.3.1",
     "exit-hook": "^4.0.0",
     "morgan": "^1.10.0",
     "node-active-window": "^0.1.0",
+    "openai": "^4.19.0",
     "tasklist": "^5.0.0"
   }
 }
