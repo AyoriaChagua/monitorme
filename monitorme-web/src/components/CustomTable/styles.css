@@ -1,0 +1,12 @@
+/* Estilo global o local */
+.custom-table {
+    /* Estilos personalizados aquí */
+    border: 1px solid #ddd; /* Por ejemplo, agregar un borde a la tabla */
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    /* Estilos para encabezados y celdas */
+    text-align: center; /* Alinear texto al centro, por ejemplo */
+  }
+  
